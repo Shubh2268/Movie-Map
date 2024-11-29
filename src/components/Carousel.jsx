@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Carousel = ({ movies }) => {
 
@@ -16,14 +16,22 @@ const Carousel = ({ movies }) => {
         );
     };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide();
+        }, 7000);
+
+        return () => clearInterval(interval);
+    }, [currentIndex]);
+
     return (
         <div className='relative w-full overflow-hidden'>
             {/* Carousel container */}
-            <div className='flex transition-transform duration-500' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            <div className='flex transition-transform ease-in-out duration-700' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 
                 {movies.map((movie, index) => (
                     <div key={index} className='flex-shrink-0 w-full h-[85vh] relative'>
-                        <img src={movie.image} alt={movie.title} className='w-full h-full object-cover'/>
+                        <img src={movie.image} alt={movie.title} className='w-full h-full object-cover' />
                         <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent'>
                             <div className='absolute bottom-4 left-4 text-white space-y-2'>
                                 <h3 className='text-2xl font-bold'>{movie.title}</h3>
