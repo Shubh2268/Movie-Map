@@ -51,7 +51,7 @@ const Carousel = ({ movies }) => {
             {/* Indicators */}
             <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2'>
                 {movies.map((_, index) => (
-                    <button key={index} className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-cyan-400' : 'bg-gray-400'} transition`} onClick={() => setCurrentIndex(index)}></button>
+                    <button key={index} className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-teal-500' : 'bg-gray-400'} transition`} onClick={() => setCurrentIndex(index)}></button>
                 ))}
             </div>
         </div>

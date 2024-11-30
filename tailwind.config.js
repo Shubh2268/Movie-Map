@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      logoFont: ["Cinzel"]
+      logoFont: ["Roboto"]
     }
   },
   plugins: [],
