@@ -36,10 +36,10 @@ const Carousel = () => {
                     <div key={movie.id} className='flex-shrink-0 w-full h-[60vh] lg:h-[85vh] relative'>
                         <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} className='w-full h-full object-cover' />
                         <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent'>
-                            <div className='w-full absolute bottom-0 left-4 max-w-md px-3 text-gray-300'>
+                            <div className='w-full absolute bottom-4 left-4 max-w-md px-3 text-gray-300'>
                                 <h3 className='font-semibold text-2xl lg:text-3xl text-gray-100 drop-shadow-2xl'>{movie.title}</h3>
                                 <p className='text-ellipsis line-clamp-3 my-2'>{movie.overview}</p>
-                                
+                                <p className='py-1'>Release Date : {movie.release_date}</p>
                             </div>
                         </div>
                     </div>
