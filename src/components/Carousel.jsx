@@ -39,6 +39,11 @@ const Carousel = () => {
                             <div className='w-full absolute bottom-4 left-4 max-w-md px-3 text-gray-300'>
                                 <h3 className='font-semibold text-2xl lg:text-3xl text-gray-100 drop-shadow-2xl'>{movie.title}</h3>
                                 <p className='text-ellipsis line-clamp-3 my-2'>{movie.overview}</p>
+                                <div className='flex items-center gap-4'>
+                                    <p>Rating : {Number(movie.vote_average).toFixed(1)}+</p>
+                                    <span>|</span>
+                                    <p>View : {Number(movie.popularity).toFixed(0)}</p>
+                                </div>
                                 <p className='py-1'>Release Date : {movie.release_date}</p>
                             </div>
                         </div>
