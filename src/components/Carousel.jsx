@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AppContext } from '../context/AppContext';
 
-const Carousel = ({ movies }) => {
+const Carousel = () => {
+
+    const { movies } = useContext(AppContext);
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -29,14 +32,14 @@ const Carousel = ({ movies }) => {
             {/* Carousel container */}
             <div className='flex transition-transform ease-in-out duration-700' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 
-                {movies.map((movie, index) => (
-                    <div key={index} className='flex-shrink-0 w-full h-[85vh] relative'>
-                        <img src={movie.image} alt={movie.title} className='w-full h-full object-cover' />
+                {movies.map((movie) => (
+                    <div key={movie.id} className='flex-shrink-0 w-full h-[60vh] lg:h-[85vh] relative'>
+                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} className='w-full h-full object-cover' />
                         <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent'>
-                            <div className='absolute bottom-4 left-4 text-white space-y-2'>
-                                <h3 className='text-2xl font-bold'>{movie.title}</h3>
-                                <p className='text-sm text-gray-300'>{movie.releaseDate}</p>
-                                <p className='text-sm text-gray-400 line-clamp-3'>{movie.description}</p>
+                            <div className='w-full absolute bottom-0 left-4 max-w-md px-3 text-gray-300'>
+                                <h3 className='font-semibold text-2xl lg:text-3xl text-gray-100 drop-shadow-2xl'>{movie.title}</h3>
+                                <p className='text-ellipsis line-clamp-3 my-2'>{movie.overview}</p>
+                                
                             </div>
                         </div>
                     </div>
