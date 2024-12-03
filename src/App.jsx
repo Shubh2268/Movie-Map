@@ -4,11 +4,11 @@ import Carousel from './components/Carousel';
 import ShiftButton from './components/ShiftButton';
 
 function App() {
-  
+
   return (
     <>
       <Navbar />
-      <Carousel movies={movies} />
+      <Carousel />
       <ShiftButton />
     </>
   )
