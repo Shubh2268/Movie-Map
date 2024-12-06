@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MovieCard = ({ movie }) => {
+const Card = ({ movie }) => {
   if (!movie) {
     return <div className="text-center text-gray-500">Loading...</div>;
   }
@@ -28,5 +28,5 @@ const MovieCard = ({ movie }) => {
 };
 
 
-export default MovieCard;
+export default Card;
 
