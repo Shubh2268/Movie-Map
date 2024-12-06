@@ -1,9 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../context/AppContext';
+import React, { useEffect, useState } from 'react';
+import { fetchMovies } from '../fetchData/fetchData';
 
 const Carousel = () => {
 
-    const { movies } = useContext(AppContext);
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        const loadMedia = async () => {
+          setMovies(await fetchMovies());
+        };
+    
+        loadMedia();
+      }, []);
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
