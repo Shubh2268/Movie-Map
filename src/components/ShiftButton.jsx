@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 const ShiftButton = () => {
-    const [activeTab, setActiveTab] = useState('Trending');
+    const [activeTab, setActiveTab] = useState('Popular');
 
-    const tabs = ['Trending', 'Popular', 'Upcoming', 'Top Rated'];
+    const tabs = ['Popular', 'Upcoming', 'Top Rated'];
 
     return (
         <div className='flex justify-center items-center'>

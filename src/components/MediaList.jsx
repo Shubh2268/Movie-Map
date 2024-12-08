@@ -17,7 +17,7 @@ const MediaList = () => {
   return (
     <div className='mx-10 p-4'>
       <h2 className='text-xl font-semibold text-white mb-8'>Popular Movies</h2>
-      <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-x-5 gap-y-10'>
         {movies.map((movie) => (
           <Card key={movie.id} movie={movie} />
         ))}
