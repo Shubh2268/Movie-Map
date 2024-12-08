@@ -15,14 +15,13 @@ const MediaList = () => {
   }, []);
 
   return (
-    <div className='p-4'>
-      <h2 className='text-xl font-bold text-white'>Popular Movies</h2>
+    <div className='mx-10 p-4'>
+      <h2 className='text-xl font-semibold text-white mb-8'>Popular Movies</h2>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
         {movies.map((movie) => (
           <Card key={movie.id} movie={movie} />
         ))}
       </div>
-
     </div>
   );
 };
