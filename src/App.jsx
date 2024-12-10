@@ -10,7 +10,7 @@ function App() {
     <>
       <Navbar />
       <Carousel />
-      <ShiftButton />
+      {/* <ShiftButton /> */}
       <MediaList />
     </>
   )

@@ -7,7 +7,7 @@ const Navbar = () => {
         <header className='fixed top-0 w-full h-16 bg-black bg-opacity-70 z-40'>
             <div className='container mx-auto px-5 flex items-center h-full'>
                 <div>
-                    <h1 className='text-3xl items-center font-extrabold px-2 bg-gradient-to-r from-teal-400 to-green-400 inline-block text-transparent bg-clip-text font-logoFont cursor-pointer active:scale-95 transition-all tracking-wide'>moviemap</h1>
+                    <h1 className='text-2xl lg:text-3xl items-center font-extrabold px-2 bg-gradient-to-r from-teal-400 to-green-400 inline-block text-transparent bg-clip-text font-logoFont cursor-pointer active:scale-95 transition-all tracking-wide'>moviemap</h1>
                 </div>
 
                 <nav className='hidden lg:flex items-center gap-1 ml-5 text-white'>

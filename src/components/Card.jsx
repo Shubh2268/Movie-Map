@@ -8,7 +8,7 @@ const Card = ({ movie }) => {
 
   return (
     <div className='group bg-gray-800 rounded-lg shadow-md shadow-teal-600 overflow-hidden relative'>
-      <div className='relative h-[500px]'>
+      <div className='relative h-[250px] lg:h-[450px]'>
         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className='w-full h-full object-cover transition-transform transform group-hover:scale-105 duration-700 ease-in-out' />
       </div>
 
