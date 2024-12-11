@@ -25,7 +25,7 @@ const Navbar = () => {
                             <IoSearchOutline />
                         </button>
                     </form>
-                    <div className='text-xl text-teal-200 cursor-pointer active:scale-90 transition-all'>
+                    <div className='text-xl text-teal-300 cursor-pointer active:scale-90 transition-all'>
                         <MdOutlineLightMode />
                     </div>
                 </div>
