@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import ShiftButton from './components/ShiftButton';
 import MediaList from './components/MediaList';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Carousel />
       <ShiftButton />
       <MediaList />
+      <Footer />
     </>
   )
 }
