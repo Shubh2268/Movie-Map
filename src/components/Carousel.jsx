@@ -44,7 +44,7 @@ const Carousel = () => {
                     <div key={movie.id} className='flex-shrink-0 w-full h-[60vh] lg:h-[85vh] relative'>
                         <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} className='w-full h-full object-cover' />
                         <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent'>
-                            <div className='w-full absolute bottom-5 left-4 max-w-md px-4 text-gray-300'>
+                            <div className='w-full absolute bottom-5 left-2 md:left-4 max-w-md px-4 text-gray-300'>
                                 <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl text-gray-100 drop-shadow-2xl'>{movie.title}</h3>
                                 <p className='text-ellipsis line-clamp-3 text-sm md:text-base my-2'>{movie.overview}</p>
                                 <div className='flex items-center gap-4 text-sm md:text-base'>
@@ -61,8 +61,8 @@ const Carousel = () => {
             </div>
 
             {/* Navigation Buttons */}
-            <button className='absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-sm md:text-base text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg hover:bg-opacity-75 transition' onClick={prevSlide}>&#10094;</button>
-            <button className='absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-sm md:text-base text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg hover:bg-opacity-75 transition' onClick={nextSlide}>&#10095;</button>
+            <button className='absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-sm md:text-base text-white w-10 h-10 hidden md:flex items-center justify-center rounded-full shadow-lg hover:bg-opacity-75 transition' onClick={prevSlide}>&#10094;</button>
+            <button className='absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-sm md:text-base text-white w-10 h-10 hidden md:flex items-center justify-center rounded-full shadow-lg hover:bg-opacity-75 transition' onClick={nextSlide}>&#10095;</button>
 
             {/* Indicators */}
             <div className='absolute bottom-1 md:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 md:space-x-2'>
