@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchMovies } from '../fetchData/fetchMedia';
+import { fetchMovies } from '../fetchData/FetchMedia';
 import Card from './Card';
 
 const MediaList = () => {
