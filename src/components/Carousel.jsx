@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchMovies } from '../fetchData/fetchData';
+import { fetchMovies } from '../fetchData/fetchMedia';
 
 const Carousel = () => {
 

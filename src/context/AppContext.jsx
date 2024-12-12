@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchMovies, fetchTVShows } from '../fetchData/fetchData';
+import { fetchMovies, fetchTVShows } from '../fetchData/fetchMedia';
 
 export const AppContext = createContext();
 
