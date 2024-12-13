@@ -1,45 +1,39 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchMovies, fetchTVShows } from '../fetchData/FetchMedia';
+import { fetchMedia } from '../fetchData/FetchMedia';
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [movies, setMovies] = useState([]);
-  const [tvShows, setTVShows] = useState([]);
-  const [loading, setLoading] = useState({ movies: false, tvShows: false });
-  const [error, setError] = useState({ movies: null, tvShows: null });
+  const [media, setMedia] = useState([]);
+  const [mediaType, setMediaType] = useState('movie');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  
-  const fetchData = async (fetchFunction, setState) => {
+  const fetchData = async (type) => {
     try {
       setLoading(true);
       setError(null);
-  
-      const data = await fetchFunction();
-      setState(data.results || []);
+      const data = await fetchMedia(type);
+      setMedia(data);
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
-  
 
-  // Fetch Movies and TV Shows
   useEffect(() => {
-    fetchData(fetchMovies, setMovies, 'movies');
-    fetchData(fetchTVShows, setTVShows, 'tvShows');
-  }, []);
+    fetchData(mediaType);
+  }, [mediaType]);
 
   return (
     <AppContext.Provider
       value={{
-        movies,
-        tvShows,
+        media,
+        mediaType,
         loading,
         error,
-        refreshMovies: () => fetchData(fetchMovies, setMovies, 'movies'),
-        refreshTVShows: () => fetchData(fetchTVShows, setTVShows, 'tvShows'),
+        setMediaType
       }}
     >
       {children}

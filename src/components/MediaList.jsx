@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { fetchMovies } from '../fetchData/FetchMedia';
+import { fetchMedia } from '../fetchData/FetchMedia';
 import Card from './Card';
 
-const MediaList = () => {
-  const [movies, setMovies] = useState([]);
+const MediaList = ({ mediaType }) => {
+  const [media, setMedia] = useState([]);
 
   useEffect(() => {
     const loadMedia = async () => {
-      setMovies(await fetchMovies());
+      const data = await fetchMedia(mediaType);
+      setMedia(data);
     };
 
     loadMedia();
-  }, []);
+  }, [mediaType]);
 
   return (
     <div className='mx-2 md:mx-10 p-4'>
-      <h2 className='text-xl font-semibold text-gray-200 text-center md:text-left mb-8'>Popular Movies</h2>
+      <h2 className='text-xl font-semibold text-gray-200 text-center md:text-left mb-8'>
+        {mediaType === 'movie' ? 'Popular Movies' : 'Popular TV Shows'}
+      </h2>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-10'>
-        {movies.map((movie) => (
-          <Card key={movie.id} movie={movie} />
+        {media.map((item) => (
+          <Card key={item.id} movie={item} />
         ))}
       </div>
     </div>
