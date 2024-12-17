@@ -4,8 +4,9 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const fetchData = async (type = 'movie') => {
   try {
     const response = await fetch(`${BASE_URL}/${type}/popular?api_key=${API_KEY}`);
+    if (!response.ok) throw new Error('Failed to fetch data');
     const data = await response.json();
-    return data.results;
+    return data.results || [];
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];

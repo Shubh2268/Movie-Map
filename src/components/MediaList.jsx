@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { fetchMedia } from '../fetchData/FetchMedia';
+import React, { useContext, useEffect } from 'react';
+import { AppContext } from '../context/AppContext';
 import Card from './Card';
 
-const MediaList = ({ mediaType }) => {
-  const [media, setMedia] = useState([]);
+const MediaList = () => {
+  const { media, mediaType, loading, error, setMediaType } = useContext(AppContext);
 
   useEffect(() => {
-    const loadMedia = async () => {
-      const data = await fetchMedia(mediaType);
-      setMedia(data);
-    };
+    setMediaType(mediaType);
+  }, [mediaType, setMediaType]);
 
-    loadMedia();
-  }, [mediaType]);
+  if (loading) {
+    return <div className='text-center text-gray-200 mt-10'>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className='text-center text-red-500 mt-10'>{error}</div>;
+  }
 
   return (
     <div className='mx-2 md:mx-10 p-4'>
@@ -21,7 +24,7 @@ const MediaList = ({ mediaType }) => {
       </h2>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-10'>
         {media.map((item) => (
-          <Card key={item.id} movie={item} />
+          <Card key={item.id} media={item} mediaType={mediaType} />
         ))}
       </div>
     </div>
