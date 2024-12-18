@@ -1,32 +1,36 @@
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
 import Card from './Card';
+import ShiftButton from './ShiftButton';
 
 const MediaList = () => {
-  const { media, mediaType, loading, error, setMediaType } = useContext(AppContext);
+  const { media, mediaType, fetchMedia, category } = useContext(AppContext);
 
   useEffect(() => {
-    setMediaType(mediaType);
-  }, [mediaType, setMediaType]);
-
-  if (loading) {
-    return <div className='text-center text-gray-200 mt-10'>Loading...</div>;
-  }
-
-  if (error) {
-    return <div className='text-center text-red-500 mt-10'>{error}</div>;
-  }
+    fetchMedia(mediaType, category);
+  }, [mediaType, category, fetchMedia]);
 
   return (
     <div className='mx-2 md:mx-10 p-4'>
-      <h2 className='text-xl font-semibold text-gray-200 text-center md:text-left mb-8'>
-        {mediaType === 'movie' ? 'Popular Movies' : 'Popular TV Shows'}
+      {/* Category Buttons */}
+      <ShiftButton />
+
+      <h2 className='text-xl font-semibold text-gray-200 text-center md:text-left mb-8 capitalize'>
+        {category} {mediaType === 'movie' ? 'Movies' : 'TV Shows'}
       </h2>
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-10'>
-        {media.map((item) => (
-          <Card key={item.id} media={item} mediaType={mediaType} />
-        ))}
-      </div>
+
+      {/* Media Cards */}
+      {media.length > 0 ? (
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-10'>
+          {media.map((item) => (
+            <Card key={item.id} media={item} />
+          ))}
+        </div>
+      ) : (
+        <p className='text-gray-400 text-center mt-10'>
+          No results found for this category.
+        </p>
+      )}
     </div>
   );
 };

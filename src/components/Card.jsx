@@ -12,6 +12,7 @@ const Card = ({ media }) => {
 
   return (
     <div className='group bg-gray-800 rounded-lg shadow-md shadow-teal-600 overflow-hidden relative'>
+      {/* Image */}
       <div className='relative h-[250px] md:h-[320px] lg:h-[450px]'>
         {posterPath ? (
           <img
@@ -21,11 +22,12 @@ const Card = ({ media }) => {
           />
         ) : (
           <div className='w-full h-full bg-gray-700 flex items-center justify-center text-gray-400'>
-            No Image
+            No Image Available
           </div>
         )}
       </div>
 
+      {/* Overlay Details */}
       <div className='absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex flex-col justify-end p-4'>
         <h3 className='text-white font-bold text-base lg:text-lg truncate'>{title}</h3>
         <p className='text-gray-100 text-xs lg:text-sm py-1'>{releaseDate}</p>

@@ -1,41 +1,39 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { fetchMedia } from '../fetchData/FetchMedia';
+import React, { createContext, useState } from 'react';
+import { fetchMedia as fetchMediaFunction } from '../fetchData/FetchMedia';
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [media, setMedia] = useState([]); // Media data
-  const [mediaType, setMediaType] = useState('movie'); // Current media type ('movie' or 'tv')
-  const [loading, setLoading] = useState(false); // Loading state
-  const [error, setError] = useState(null); // Error state
+  const [media, setMedia] = useState([]);
+  const [mediaType, setMediaType] = useState('movie');
+  const [category, setCategory] = useState('popular');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Function to fetch media data based on type
-  const fetchData = async (type) => {
+  const fetchMedia = async (type, selectedCategory) => {
+    setLoading(true);
     try {
-      setLoading(true); // Set loading to true before fetching
-      setError(null); // Reset error state
-      const data = await fetchMedia(type); // Fetch data
-      setMedia(data); // Update media state
+      const data = await fetchMediaFunction(type, selectedCategory);
+      setMedia(data);
+      setError(null);
     } catch (err) {
-      setError(err.message); // Capture error
+      setError('Failed to fetch media data.');
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
-
-  // Fetch data whenever mediaType changes
-  useEffect(() => {
-    fetchData(mediaType);
-  }, [mediaType]);
 
   return (
     <AppContext.Provider
       value={{
-        media,        // List of media (movies/TV shows)
-        mediaType,    // Current media type
-        loading,      // Loading state
-        error,        // Error state
-        setMediaType, // Function to update mediaType
+        media,
+        mediaType,
+        category,
+        setMediaType,
+        setCategory,
+        fetchMedia,
+        loading,
+        error,
       }}
     >
       {children}
