@@ -19,8 +19,8 @@ const Navbar = () => {
                 <Link to='/' className='text-2xl lg:text-3xl items-center font-extrabold px-2 bg-gradient-to-r from-teal-400 to-green-400 inline-block text-transparent bg-clip-text font-logoFont cursor-pointer active:scale-95 transition-all tracking-wide'>moviemap</Link>
 
                 <nav className='hidden lg:flex items-center gap-1 ml-5 text-white'>
-                    <Link className='px-2 cursor-pointer' onClick={() => handleNavigation('movie')}>Movies</Link>
-                    <Link className='px-2 cursor-pointer' onClick={() => handleNavigation('tv')}>TV Shows</Link>
+                    <Link className='px-2 cursor-pointer active:scale-90 transition-all' onClick={() => handleNavigation('movie')}>Movies</Link>
+                    <Link className='px-2 cursor-pointer active:scale-90 transition-all' onClick={() => handleNavigation('tv')}>TV Shows</Link>
                 </nav>
 
                 <div className='ml-auto flex items-center gap-5'>

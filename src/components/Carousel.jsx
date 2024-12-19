@@ -41,12 +41,8 @@ const Carousel = () => {
 
             <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent'>
               <div className='w-full absolute bottom-5 left-2 md:left-4 max-w-md px-4 text-gray-300'>
-                <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl text-gray-100 drop-shadow-2xl'>
-                  {item.title || item.name}
-                </h3>
-                <p className='text-ellipsis line-clamp-3 text-sm md:text-base my-2'>
-                  {item.overview}
-                </p>
+                <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl text-gray-100 drop-shadow-2xl'>{item.title || item.name}</h3>
+                <p className='text-ellipsis line-clamp-3 text-sm md:text-base my-2'>{item.overview}</p>
                 <div className='flex items-center gap-4 text-sm md:text-base'>
                   <p>Rating: {Number(item.vote_average).toFixed(1)}+</p>
                   <span>|</span>
@@ -69,12 +65,7 @@ const Carousel = () => {
       {/* Indicators */}
       <div className='absolute bottom-1 md:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 md:space-x-2'>
         {media.map((_, index) => (
-          <button
-            key={index}
-            className={`w-1 md:w-2 h-1 md:h-2 rounded-full ${index === currentIndex ? 'bg-teal-500' : 'bg-gray-400'
-              } transition`}
-            onClick={() => setCurrentIndex(index)}
-          ></button>
+          <button key={index} className={`w-1 md:w-2 h-1 md:h-2 rounded-full ${index === currentIndex ? 'bg-teal-500' : 'bg-gray-400'} transition`} onClick={() => setCurrentIndex(index)}></button>
         ))}
       </div>
     </div>

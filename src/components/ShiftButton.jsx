@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const ShiftButton = () => {
-  const { category, setCategory } = useContext(AppContext);
+  const { category, setCategory, mediaType } = useContext(AppContext);
 
-  const tabs = ['Popular', 'Upcoming', 'Top Rated'];
+  const tabs = mediaType === 'movie' 
+    ? ['Popular', 'Upcoming', 'Top Rated'] 
+    : ['Popular', 'Top Rated'];
 
   return (
     <div className='flex justify-center items-center'>
@@ -13,11 +15,10 @@ const ShiftButton = () => {
           <button
             key={tab}
             onClick={() => setCategory(tab.toLowerCase().replace(' ', '_'))}
-            className={`px-5 md:px-14 py-0.5 md:py-1 rounded-full font-normal md:font-medium text-xs md:text-sm transition-all ${
-              category === tab.toLowerCase().replace(' ', '_')
+            className={`px-5 md:px-14 py-0.5 md:py-1 rounded-full font-normal md:font-medium text-xs md:text-sm transition-all ${category === tab.toLowerCase().replace(' ', '_')
                 ? 'bg-gradient-to-r from-teal-500 to-green-500 text-white'
                 : 'bg-transparent text-green-400 hover:text-white hover:bg-green-400'
-            }`}
+              }`}
           >
             {tab}
           </button>
