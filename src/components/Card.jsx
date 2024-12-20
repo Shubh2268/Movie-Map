@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-const Card = ({ media }) => {
+const Card = ({ media, mediaType }) => {
   if (!media) {
     return <div className='text-center text-gray-400'>Loading...</div>;
   }
@@ -11,7 +12,7 @@ const Card = ({ media }) => {
   const posterPath = media.poster_path;
 
   return (
-    <div className='group bg-gray-800 rounded-lg shadow-md shadow-teal-600 overflow-hidden relative'>
+    <Link to={`/details/${mediaType}/${media.id}`} className='group bg-gray-800 rounded-lg shadow-md shadow-teal-600 overflow-hidden relative'>
       {/* Image */}
       <div className='relative h-[250px] md:h-[320px] lg:h-[450px]'>
         {posterPath ? (
@@ -38,7 +39,7 @@ const Card = ({ media }) => {
           Rating: {media.vote_average ? media.vote_average.toFixed(1) : 'N/A'} / 10
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
