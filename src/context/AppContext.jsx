@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react';
 import { fetchMedia as fetchMediaFunction } from '../fetchData/FetchMedia';
 import { fetchDetails as fetchDetailsFunction } from '../fetchData/FetchDetails';
 
+
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {

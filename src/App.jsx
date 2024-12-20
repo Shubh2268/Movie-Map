@@ -11,9 +11,11 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route index element={<HomePage />} />
+        <Route path='/' element={<HomePage />} />
+        <Route path='/movie' element={<HomePage />} />
+        <Route path='/tv' element={<HomePage />} />
         <Route path='/details/:mediaType/:id' element={<DetailsPage />} />
-        <Route path='/*' element={<ErrorPage />} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
