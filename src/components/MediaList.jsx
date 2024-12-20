@@ -12,7 +12,6 @@ const MediaList = () => {
 
   return (
     <div className='mx-2 md:mx-10 p-4'>
-      {/* Category Buttons */}
       <ShiftButton />
 
       <h2 className='text-xl font-semibold text-gray-200 text-center md:text-left mb-8 capitalize'>

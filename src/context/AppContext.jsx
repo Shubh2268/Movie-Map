@@ -1,7 +1,6 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useCallback } from 'react';
 import { fetchMedia as fetchMediaFunction } from '../fetchData/FetchMedia';
 import { fetchDetails as fetchDetailsFunction } from '../fetchData/FetchDetails';
-
 
 export const AppContext = createContext();
 
@@ -14,7 +13,7 @@ export const AppProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   // Function to fetch the list of movies/TV shows
-  const fetchMedia = async (type = 'movie', selectedCategory = 'popular') => {
+  const fetchMedia = useCallback(async (type = 'movie', selectedCategory = 'popular') => {
     setLoading(true);
     try {
       const data = await fetchMediaFunction(type, selectedCategory);
@@ -25,10 +24,10 @@ export const AppProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Function to fetch details of a specific movie/TV show
-  const fetchDetails = async (type = 'movie', id) => {
+  const fetchDetails = useCallback(async (type = 'movie', id) => {
     setLoading(true);
     try {
       const data = await fetchDetailsFunction(type, id);
@@ -39,7 +38,7 @@ export const AppProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   return (
     <AppContext.Provider
