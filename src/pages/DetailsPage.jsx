@@ -65,34 +65,34 @@ const DetailsPage = () => {
       </div>
 
       {/* Content Section */}
-      <div className='container mx-auto px-3 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-10'>
+      <div className='container mx-auto px-5 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-7'>
         {/* Poster Section */}
-        <div className='relative mx-auto lg:-mt-28 lg:mx-0 w-fit min-w-60'>
+        <div className='relative mx-auto -mt-40 lg:-mt-28 lg:mx-0 h-[220px] w-[180px] md:h-[400px] md:w-[350px]'>
           <img
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt='Poster'
-            className='h-80 w-60 object-cover rounded'
+            className='object-cover rounded-lg shadow-md shadow-teal-600'
           />
         </div>
 
         {/* Details Section */}
         <div>
-          <h1 className='text-2xl lg:text-4xl font-semibold text-white'>{title || name}</h1>
+          <h1 className='text-2xl lg:text-4xl font-semibold text-white mt-5 md:mt-0'>{title || name}</h1>
           {tagline && (<p className='text-neutral-400'>{tagline}</p>)}
 
           <Divider />
 
           <div className='flex items-center gap-3'>
-            <p className='font-semibold'> Rating: {vote_average || 0} + </p>
+            <p className='font-semibold'> Rating : {vote_average || 0} + </p>
             <span>|</span>
-            <p className='font-semibold'>Votes: {vote_count || 0} + </p>
+            <p className='font-semibold'>Votes : {vote_count || 0} + </p>
             <span>|</span>
             <p>
-              <span className='font-semibold'>Duration:</span>{' '}
+              <span className='font-semibold'>Duration :</span>{' '}
               {runtime
-                ? `${Math.floor(runtime / 60)}h ${runtime % 60}m`
+                ? `${Math.floor(runtime / 60)} h ${runtime % 60} m`
                 : episode_run_time
-                  ? `${episode_run_time[0]}m`
+                  ? `${episode_run_time[0]} m`
                   : 'N/A'}
             </p>
           </div>
@@ -105,16 +105,16 @@ const DetailsPage = () => {
             <Divider />
 
             <div className='flex items-center gap-3 my-3 text-center'>
-              <p><span className='font-semibold'>Status:</span> {status || 'N/A'}</p>
-              <p><span className='font-semibold'>Release Date:</span>{' '} {release_date || first_air_date || 'N/A'} </p>
-              {revenue && (
-                <p><span className='font-semibold'>Revenue:</span> ${revenue.toLocaleString()}</p>
-              )}
+              <p><span className='font-semibold'>Status :</span> {status || 'N/A'}</p>
+              <span>|</span>
+              <p><span className='font-semibold'>Release Date :</span>{' '} {release_date || first_air_date || 'N/A'}</p>
+              <span>|</span>
+              <p><span className='font-semibold'>Revenue :</span> $ {revenue ? revenue.toLocaleString() : '--'}</p>
             </div>
 
             <Divider />
           </div>
-          
+
         </div>
       </div>
     </div>
