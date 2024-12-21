@@ -54,7 +54,7 @@ const DetailsPage = () => {
   return (
     <div className='bg-black text-white min-h-screen'>
       {/* Hero Section */}
-      <div className='relative w-full h-[50vh] lg:h-[70vh]'>
+      <div className='relative w-full h-[40vh] lg:h-[60vh]'>
         <img
           src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
           alt='Backdrop'
@@ -64,23 +64,23 @@ const DetailsPage = () => {
       </div>
 
       {/* Content Section */}
-      <div className='flex flex-col md:flex-row gap-4'>
+      <div className='container mx-auto px-3 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-10'>
         {/* Poster Section */}
-        <div className='hidden md:flex absolute top-1/3 left-1/2 md:left-5 h-[400px] w-[250px]'>
+        <div className='relative mx-auto lg:-mt-28 lg:mx-0 w-fit min-w-60'>
           <img
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt='Poster'
-            className='w-full rounded-lg shadow-lg'
+            className='h-80 w-60 object-cover rounded'
           />
         </div>
 
         {/* Details Section */}
-        <div className='flex-grow absolute bottom-0 left-1/4'>
-          <h1 className='text-3xl lg:text-4xl font-bold mb-2'>
+        <div className='flex-grow absolute bottom-0 left-1/4 pr-5'>
+          <h1 className='text-3xl lg:text-4xl font-semibold mb-2'>
             {title || name}
           </h1>
           {tagline && (
-            <p className='text-lg italic text-gray-300 mb-4'>{tagline}</p>
+            <p className='text-lg text-gray-300 mb-4'>{tagline}</p>
           )}
           <div className='flex items-center text-sm lg:text-base gap-4 mb-4'>
             <p>

@@ -20,7 +20,7 @@ const MediaList = () => {
 
       {/* Media Cards */}
       {media.length > 0 ? (
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-10'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-3 gap-y-10'>
           {media.map((item) => (
             <Card key={item.id} media={item} />
           ))}
