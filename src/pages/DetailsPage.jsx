@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router';
 import { AppContext } from '../context/AppContext';
+import Divider from '../components/Divider';
 
 const DetailsPage = () => {
   const { mediaType, id } = useParams();
@@ -75,48 +76,45 @@ const DetailsPage = () => {
         </div>
 
         {/* Details Section */}
-        <div className='flex-grow absolute bottom-0 left-1/4 pr-5'>
-          <h1 className='text-3xl lg:text-4xl font-semibold mb-2'>
-            {title || name}
-          </h1>
-          {tagline && (
-            <p className='text-lg text-gray-300 mb-4'>{tagline}</p>
-          )}
-          <div className='flex items-center text-sm lg:text-base gap-4 mb-4'>
-            <p>
-              <span className='font-semibold'>Rating:</span> {vote_average || 0}
-            </p>
-            <p>
-              <span className='font-semibold'>Votes:</span> {vote_count || 0}
-            </p>
+        <div>
+          <h1 className='text-2xl lg:text-4xl font-semibold text-white'>{title || name}</h1>
+          {tagline && (<p className='text-neutral-400'>{tagline}</p>)}
+
+          <Divider />
+
+          <div className='flex items-center gap-3'>
+            <p className='font-semibold'> Rating: {vote_average || 0} + </p>
+            <span>|</span>
+            <p className='font-semibold'>Votes: {vote_count || 0} + </p>
+            <span>|</span>
             <p>
               <span className='font-semibold'>Duration:</span>{' '}
               {runtime
                 ? `${Math.floor(runtime / 60)}h ${runtime % 60}m`
                 : episode_run_time
-                ? `${episode_run_time[0]}m`
-                : 'N/A'}
+                  ? `${episode_run_time[0]}m`
+                  : 'N/A'}
             </p>
           </div>
 
-          <h2 className='text-xl font-semibold mb-2'>Overview</h2>
-          <p className='text-gray-300 mb-4'>{overview || 'No overview available.'}</p>
+          <Divider />
+          <div>
+            <h2 className='text-xl font-semibold text-white mb-1'>Overview</h2>
+            <p className='text-gray-300 mb-4'>{overview || 'No overview available.'}</p>
 
-          <div className='text-sm lg:text-base text-gray-400'>
-            <p>
-              <span className='font-semibold'>Status:</span> {status || 'N/A'}
-            </p>
-            <p>
-              <span className='font-semibold'>Release Date:</span>{' '}
-              {release_date || first_air_date || 'N/A'}
-            </p>
-            {revenue && (
-              <p>
-                <span className='font-semibold'>Revenue:</span> $
-                {revenue.toLocaleString()}
-              </p>
-            )}
+            <Divider />
+
+            <div className='flex items-center gap-3 my-3 text-center'>
+              <p><span className='font-semibold'>Status:</span> {status || 'N/A'}</p>
+              <p><span className='font-semibold'>Release Date:</span>{' '} {release_date || first_air_date || 'N/A'} </p>
+              {revenue && (
+                <p><span className='font-semibold'>Revenue:</span> ${revenue.toLocaleString()}</p>
+              )}
+            </div>
+
+            <Divider />
           </div>
+          
         </div>
       </div>
     </div>
