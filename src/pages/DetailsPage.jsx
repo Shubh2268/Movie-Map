@@ -67,7 +67,7 @@ const DetailsPage = () => {
       {/* Content Section */}
       <div className='container mx-auto px-5 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-7'>
         {/* Poster Section */}
-        <div className='relative mx-auto -mt-48 md:-mt-28 lg:mx-0 w-fit md:min-w-64'>
+        <div className='relative mx-auto -mt-48 md:-mt-28 lg:mx-0 w-fit md:min-w-64 md:max-w-64'>
           <img
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
             alt='Poster'
