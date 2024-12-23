@@ -67,25 +67,25 @@ const DetailsPage = () => {
       {/* Content Section */}
       <div className='container mx-auto px-5 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-7'>
         {/* Poster Section */}
-        <div className='relative mx-auto -mt-48 md:-mt-36 lg:mx-0 w-fit md:min-w-64'>
+        <div className='relative mx-auto -mt-48 md:-mt-28 lg:mx-0 w-fit md:min-w-64'>
           <img
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
             alt='Poster'
-            className='h-56 w-56 md:h-[380px] md:w-[350px] object-cover rounded-full md:rounded-md shadow-md shadow-teal-600'
+            className='h-56 w-56 md:h-[380px] md:w-[350px] object-cover rounded-full md:rounded-lg shadow-md shadow-teal-600'
           />
         </div>
 
         {/* Details Section */}
         <div>
           <h1 className='text-2xl lg:text-4xl font-semibold text-white mt-5 md:mt-0'>{title || name}</h1>
-          {tagline && (<p className='text-neutral-400'>{tagline}</p>)}
+          {tagline && (<p className='text-neutral-300'>{tagline}</p>)}
 
           <Divider />
 
           <div className='flex items-center gap-3'>
-            <p className='font-semibold'> Rating : {vote_average || 0} + </p>
+            <p><span className='font-semibold'>Rating : </span> {vote_average || 0} + </p>
             <span>|</span>
-            <p className='font-semibold'>Votes : {vote_count || 0} + </p>
+            <p><span className='font-semibold'>Votes : </span> {vote_count || 0} + </p>
             <span>|</span>
             <p>
               <span className='font-semibold'>Duration :</span>{' '}
