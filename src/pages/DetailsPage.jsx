@@ -55,7 +55,7 @@ const DetailsPage = () => {
   return (
     <div className='bg-black text-white min-h-screen'>
       {/* Hero Section */}
-      <div className='relative w-full h-[40vh] lg:h-[60vh]'>
+      <div className='relative w-full h-[40vh] lg:h-[60vh] border-b border-teal-600 md:border-none'>
         <img
           src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
           alt='Backdrop'
@@ -67,11 +67,11 @@ const DetailsPage = () => {
       {/* Content Section */}
       <div className='container mx-auto px-5 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-7'>
         {/* Poster Section */}
-        <div className='relative mx-auto -mt-40 lg:-mt-28 lg:mx-0 h-[220px] w-[180px] md:h-[400px] md:w-[350px]'>
+        <div className='relative mx-auto -mt-48 md:-mt-36 lg:mx-0 w-fit md:min-w-64'>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${poster_path}`}
             alt='Poster'
-            className='object-cover rounded-lg shadow-md shadow-teal-600'
+            className='h-56 w-56 md:h-[380px] md:w-[350px] object-cover rounded-full md:rounded-md shadow-md shadow-teal-600'
           />
         </div>
 
@@ -90,7 +90,7 @@ const DetailsPage = () => {
             <p>
               <span className='font-semibold'>Duration :</span>{' '}
               {runtime
-                ? `${Math.floor(runtime / 60)} h ${runtime % 60} m`
+                ? `${Math.floor(runtime / 60)}h ${runtime % 60}m`
                 : episode_run_time
                   ? `${episode_run_time[0]} m`
                   : 'N/A'}
@@ -114,7 +114,6 @@ const DetailsPage = () => {
 
             <Divider />
           </div>
-
         </div>
       </div>
     </div>
