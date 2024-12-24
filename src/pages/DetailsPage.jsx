@@ -13,7 +13,7 @@ const DetailsPage = () => {
 
   if (loading) {
     return (
-      <div className='bg-gray-900 text-white min-h-screen flex items-center justify-center'>
+      <div className='bg-black text-white min-h-screen flex items-center justify-center'>
         <p>Loading...</p>
       </div>
     );
@@ -21,7 +21,7 @@ const DetailsPage = () => {
 
   if (error) {
     return (
-      <div className='bg-gray-900 text-white min-h-screen flex items-center justify-center'>
+      <div className='bg-black text-white min-h-screen flex items-center justify-center'>
         <p>{error}</p>
       </div>
     );
@@ -29,7 +29,7 @@ const DetailsPage = () => {
 
   if (!details) {
     return (
-      <div className='bg-gray-900 text-white min-h-screen flex items-center justify-center'>
+      <div className='bg-black text-white min-h-screen flex items-center justify-center'>
         <p>No details available.</p>
       </div>
     );
@@ -50,6 +50,9 @@ const DetailsPage = () => {
     revenue,
     runtime,
     episode_run_time,
+    director,
+    writers,
+    cast = [], // Cast details from the API response
   } = details;
 
   return (
@@ -77,15 +80,19 @@ const DetailsPage = () => {
 
         {/* Details Section */}
         <div>
-          <h1 className='text-2xl lg:text-4xl font-semibold text-white mt-5 md:mt-0'>{title || name}</h1>
-          {tagline && (<p className='text-neutral-300'>{tagline}</p>)}
+          <h1 className='text-2xl lg:text-4xl font-semibold text-white pt-5 md:pt-0'>{title || name}</h1>
+          {tagline && <p className='text-neutral-300'>{tagline}</p>}
 
           <Divider />
 
           <div className='flex items-center gap-3'>
-            <p><span className='font-semibold'>Rating : </span> {vote_average || 0} + </p>
+            <p>
+              <span className='font-semibold'>Rating :</span> {vote_average || 0} +
+            </p>
             <span>|</span>
-            <p><span className='font-semibold'>Votes : </span> {vote_count || 0} + </p>
+            <p>
+              <span className='font-semibold'>Votes :</span> {vote_count || 0} +
+            </p>
             <span>|</span>
             <p>
               <span className='font-semibold'>Duration :</span>{' '}
@@ -105,14 +112,59 @@ const DetailsPage = () => {
             <Divider />
 
             <div className='flex items-center gap-3 my-3 text-center'>
-              <p><span className='font-semibold'>Status :</span> {status || 'N/A'}</p>
+              <p>
+                <span className='font-semibold'>Status :</span> {status || 'N/A'}
+              </p>
               <span>|</span>
-              <p><span className='font-semibold'>Release Date :</span>{' '} {release_date || first_air_date || 'N/A'}</p>
+              <p>
+                <span className='font-semibold'>Release Date :</span>{' '}
+                {release_date || first_air_date || 'N/A'}
+              </p>
               <span>|</span>
-              <p><span className='font-semibold'>Revenue :</span> $ {revenue ? revenue.toLocaleString() : '--'}</p>
+              <p>
+                <span className='font-semibold'>Revenue :</span> $ {revenue ? revenue.toLocaleString() : '--'}
+              </p>
             </div>
 
             <Divider />
+
+            <div>
+              <p>
+                <span className='font-semibold'>Director :</span> {director}
+              </p>
+            </div>
+
+            <Divider />
+
+            <div>
+              <p>
+                <span className='font-semibold'>Writer(s) :</span> {writers}
+              </p>
+            </div>
+
+            <Divider />
+
+            {/* Cast Section */}
+            <div>
+              <h2 className='font-semibold text-white mb-2'>Cast :</h2>
+              <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3'>
+                {cast.length > 0 ? (
+                  cast.map((actor) => (
+                    <div key={actor.id} className='text-center'>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w185/${actor.profile_path}`}
+                        alt={actor.name}
+                        className='w-14 h-14 md:w-20 md:h-20 rounded-full object-cover mx-auto'
+                      />
+                      <p className='text-gray-400 text-xs md:text-sm mt-2'>{actor.name}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p className='text-gray-400'>No cast information available.</p>
+                )}
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

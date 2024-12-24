@@ -34,6 +34,7 @@ export const AppProvider = ({ children }) => {
       setDetails(data);
       setError(null);
     } catch (err) {
+      console.error(err); // Log the error for debugging
       setError('Failed to fetch details.');
     } finally {
       setLoading(false);
