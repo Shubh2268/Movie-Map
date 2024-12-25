@@ -141,14 +141,14 @@ const DetailsPage = () => {
             {/* Cast Section */}
             <div>
               <h2 className='font-semibold text-white mb-2'>Cast :</h2>
-              <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3'>
+              <div className='grid grid-cols-3 md:grid-cols-[repeat(auto-fit,96px)] gap-5 my-4'>
                 {cast.length > 0 ? (
                   cast.map((actor) => (
                     <div key={actor.id} className='text-center'>
                       <img
                         src={`https://image.tmdb.org/t/p/w185/${actor.profile_path}`}
                         alt={actor.name}
-                        className='w-14 h-14 md:w-20 md:h-20 rounded-full object-cover mx-auto'
+                        className='w-14 h-14 md:w-20 md:h-20 rounded-full object-cover'
                       />
                       <p className='text-gray-400 text-xs md:text-sm mt-2'>{actor.name}</p>
                     </div>
