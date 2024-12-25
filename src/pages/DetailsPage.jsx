@@ -68,7 +68,7 @@ const DetailsPage = () => {
       </div>
 
       {/* Content Section */}
-      <div className='container mx-auto px-5 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-7'>
+      <div className='container mx-auto px-5 lg:px-8 py-16 lg:py-0 flex flex-col lg:flex-row gap-5 lg:gap-7'>
         {/* Poster Section */}
         <div className='relative mx-auto -mt-48 md:-mt-28 lg:mx-0 w-fit md:min-w-64 md:max-w-64'>
           <img
@@ -121,25 +121,19 @@ const DetailsPage = () => {
                 {release_date || first_air_date || 'N/A'}
               </p>
               <span>|</span>
-              <p>
-                <span className='font-semibold'>Revenue :</span> $ {revenue ? revenue.toLocaleString() : '--'}
-              </p>
+              <p><span className='font-semibold'>Revenue :</span> $ {revenue ? revenue.toLocaleString() : '--'}</p>
             </div>
 
             <Divider />
 
             <div>
-              <p>
-                <span className='font-semibold'>Director :</span> {director}
-              </p>
+              <p><span className='font-semibold'>Director :</span> {director}</p>
             </div>
 
             <Divider />
 
             <div>
-              <p>
-                <span className='font-semibold'>Writer(s) :</span> {writers}
-              </p>
+              <p><span className='font-semibold'>Writer(s) :</span> {writers}</p>
             </div>
 
             <Divider />
