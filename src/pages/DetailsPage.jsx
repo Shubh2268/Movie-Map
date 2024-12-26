@@ -58,7 +58,7 @@ const DetailsPage = () => {
   return (
     <div className='bg-black text-white min-h-screen'>
       {/* Hero Section */}
-      <div className='relative w-full h-[40vh] lg:h-[60vh] border-b border-teal-600 md:border-none'>
+      <div className='relative w-full h-[40vh] lg:h-[60vh] border-[0.5px] border-gray-600 md:border-none'>
         <img
           src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
           alt='Backdrop'
@@ -74,7 +74,7 @@ const DetailsPage = () => {
           <img
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
             alt='Poster'
-            className='h-56 w-56 md:h-[380px] md:w-[350px] object-cover rounded-full md:rounded-lg shadow-md shadow-teal-600'
+            className='h-56 w-40 md:h-[380px] md:w-[350px] object-cover rounded-lg shadow-md shadow-teal-600'
           />
         </div>
 

@@ -1,6 +1,7 @@
 import React, { createContext, useState, useCallback } from 'react';
 import { fetchMedia as fetchMediaFunction } from '../fetchData/FetchMedia';
 import { fetchDetails as fetchDetailsFunction } from '../fetchData/FetchDetails';
+import { fetchSearchMedia as fetchSearchMediaFunction } from '../fetchData/FetchSearchMedia';
 
 export const AppContext = createContext();
 
@@ -40,6 +41,20 @@ export const AppProvider = ({ children }) => {
     }
   }, []);
 
+  // Function to search for movies/TV shows
+  const fetchSearchMedia = useCallback(async (query, type = 'movie') => {
+    setLoading(true);
+    try {
+      const data = await fetchSearchMediaFunction(query, type);
+      setMedia(data);
+      setError(null);
+    } catch (err) {
+      setError('Failed to fetch search results.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -53,6 +68,7 @@ export const AppProvider = ({ children }) => {
         setCategory,
         fetchMedia,
         fetchDetails,
+        fetchSearchMedia,
       }}
     >
       {children}
