@@ -3,6 +3,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { MdOutlineLightMode } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router';
 import { AppContext } from '../context/AppContext';
+import { MdHome, MdMovie, MdLiveTv, MdSearch } from 'react-icons/md';
 
 const Navbar = () => {
     const { setMediaType } = useContext(AppContext);
@@ -46,6 +47,27 @@ const Navbar = () => {
                 </div>
             </div>
 
+            {/* Mobile Navigation */}
+            <nav className='md:hidden h-fit p-2 bg-black bg-opacity-70 backdrop-blur-2xl fixed w-full bottom-0 z-40'>
+                <div className='flex items-center justify-around h-full text-neutral-200'>
+                    <Link to='/' className='flex flex-col items-center justify-center'>
+                        <MdHome size={25} />
+                        <span className='text-xs text-neutral-300'>Home</span>
+                    </Link>
+                    <button onClick={() => handleNavigation('movie')} className='flex flex-col items-center justify-center'>
+                        <MdMovie size={25} />
+                        <span className='text-xs text-neutral-300'>Movies</span>
+                    </button>
+                    <button onClick={() => handleNavigation('tv')} className='flex flex-col items-center justify-center'>
+                        <MdLiveTv size={25} />
+                        <span className='text-xs text-neutral-300'>TV Shows</span>
+                    </button>
+                    <Link to='/search' className='flex flex-col items-center justify-center'>
+                        <MdSearch size={25} />
+                        <span className='text-xs text-neutral-300'>Search</span>
+                    </Link>
+                </div>
+            </nav>
         </header>
     );
 };
