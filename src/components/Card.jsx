@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Card = ({ media, mediaType }) => {
+const Card = ({ media }) => {
   if (!media) {
     return <div className='text-center text-gray-400'>Loading...</div>;
   }
@@ -10,6 +10,7 @@ const Card = ({ media, mediaType }) => {
   const releaseDate = media.release_date || media.first_air_date || 'N/A';
   const overview = media.overview || 'No description available';
   const posterPath = media.poster_path;
+  const mediaType = media.media_type || 'movie';
 
   return (
     <Link to={`/details/${mediaType}/${media.id}`} className='group bg-gray-800 rounded-lg shadow-md shadow-teal-600 overflow-hidden relative'>
