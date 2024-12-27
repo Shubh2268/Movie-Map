@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
@@ -7,7 +8,8 @@ const Footer = () => {
             <div className='container mx-auto px-6 lg:px-16 text-center'>
                 {/* Logo and Tagline */}
                 <div className='mb-6'>
-                    <h2 className='text-2xl font-bold text-teal-400'>MovieMap</h2>
+                    <Link to='/' className='text-xl lg:text-2xl font-extrabold px-2 bg-gradient-to-r from-teal-400 to-green-400 inline-block text-transparent bg-clip-text font-logoFont cursor-pointer active:scale-95 transition-all tracking-wide'>moviemap</Link>
+
                     <p className='text-sm mt-2 text-gray-400'>Discover the best movies and TV shows, all in one place.</p>
                 </div>
 
