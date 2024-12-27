@@ -148,7 +148,7 @@ const DetailsPage = () => {
                       <img
                         src={`https://image.tmdb.org/t/p/w185/${actor.profile_path}`}
                         alt={actor.name}
-                        className='w-14 h-14 md:w-20 md:h-20 rounded-full object-cover'
+                        className='w-14 h-14 md:w-20 md:h-20 rounded-full object-cover mx-auto'
                       />
                       <p className='text-gray-400 text-xs md:text-sm mt-2'>{actor.name}</p>
                     </div>
