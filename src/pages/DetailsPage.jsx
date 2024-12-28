@@ -81,7 +81,7 @@ const DetailsPage = () => {
         {/* Details Section */}
         <div>
           <h1 className='text-2xl lg:text-4xl font-semibold text-white pt-5 md:pt-0'>{title || name}</h1>
-          {tagline && <p className='text-neutral-300'>{tagline}</p>}
+          {tagline && <p className='text-neutral-300 pt-2'>{tagline}</p>}
 
           <Divider />
 
