@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback } from 'react';
+import React, { createContext, useState, useCallback, useEffect } from 'react';
 import { fetchMediaFunction } from '../fetchData/FetchMedia.js';
 import { fetchDetailsFunction } from '../fetchData/FetchDetails.js';
 import { fetchSearchMediaFunction } from '../fetchData/FetchSearchMedia.js';
@@ -12,6 +12,24 @@ export const AppProvider = ({ children }) => {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // Theme state and toggle function
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  useEffect(() => {
+    // Apply the theme class to the HTML element
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   // Function to fetch the list of movies/TV shows
   const fetchMedia = useCallback(async (type = 'movie', selectedCategory = 'popular') => {
@@ -64,6 +82,8 @@ export const AppProvider = ({ children }) => {
         details,
         loading,
         error,
+        theme,
+        toggleTheme,
         setMediaType,
         setCategory,
         fetchMedia,

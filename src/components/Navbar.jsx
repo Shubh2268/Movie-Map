@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
-import { MdOutlineLightMode } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router';
 import { AppContext } from '../context/AppContext';
-import { MdHome, MdMovie, MdLiveTv, MdSearch } from 'react-icons/md';
+import { MdLightMode, MdDarkMode, MdHome, MdMovie, MdLiveTv, MdSearch } from 'react-icons/md';
 
 const Navbar = () => {
-    const { setMediaType } = useContext(AppContext);
+    const { setMediaType, toggleTheme, theme } = useContext(AppContext);
     const [searchQuery, setSearchQuery] = useState('');
     const [showMobileSearch, setShowMobileSearch] = useState(false);
     const navigate = useNavigate();
@@ -26,16 +25,16 @@ const Navbar = () => {
     };
 
     return (
-        <header className='fixed top-0 w-full bg-black bg-opacity-70 z-40'>
+        <header className='fixed top-0 w-full bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-70 z-40'>
             <div className='container mx-auto px-5 flex items-center h-16'>
                 {/* Logo */}
                 <Link to='/' className='text-2xl lg:text-3xl font-extrabold px-2 bg-gradient-to-r from-teal-400 to-green-400 inline-block text-transparent bg-clip-text font-logoFont cursor-pointer active:scale-95 transition-all tracking-wide'>moviemap</Link>
 
                 {/* Navigation links */}
                 <nav className='hidden md:flex items-center gap-1 ml-5 text-white'>
-                    <button className='px-2 cursor-pointer active:scale-90 transition-all text-white' onClick={() => handleNavigation('movie')}>Movies</button>
+                    <button className='px-2 cursor-pointer active:scale-90 transition-all text-black dark:text-white' onClick={() => handleNavigation('movie')}>Movies</button>
 
-                    <button className='px-2 cursor-pointer active:scale-90 transition-all text-white' onClick={() => handleNavigation('tv')}>TV Shows</button>
+                    <button className='px-2 cursor-pointer active:scale-90 transition-all text-black dark:text-white' onClick={() => handleNavigation('tv')}>TV Shows</button>
                 </nav>
 
                 {/* Search bar */}
@@ -46,17 +45,17 @@ const Navbar = () => {
                             placeholder='Search here...'
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className='bg-transparent pr-4 pl-2 py-1 outline-none border-b border-gray-500 hidden lg:block placeholder:text-gray-300 text-white'
+                            className='bg-transparent pr-4 pl-2 py-1 outline-none border-b border-gray-500 hidden lg:block placeholder:text-gray-400 dark:placeholder:text-gray-300 text-black dark:text-white'
                         />
-                        <button type='submit' className='text-xl text-white active:scale-90 transition-all'>
+                        <button type='submit' className='text-xl text-black dark:text-white active:scale-90 transition-all'>
                             <IoSearchOutline />
                         </button>
                     </form>
 
                     {/* Toggle theme */}
-                    <div className='text-xl text-teal-300 cursor-pointer active:scale-90 transition-all'>
-                        <MdOutlineLightMode />
-                    </div>
+                    <button onClick={toggleTheme} className='text-xl text-gray-800 dark:text-teal-300 cursor-pointer active:scale-90 transition-all'>
+                        {theme === 'light' ? <MdDarkMode /> : <MdLightMode />}
+                    </button>
                 </div>
             </div>
 
