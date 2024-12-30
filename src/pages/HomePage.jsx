@@ -4,7 +4,7 @@ import MediaList from '../components/MediaList';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='bg-gray-100 dark:bg-black'>
       <Carousel />
       <MediaList />
     </div>

@@ -14,7 +14,7 @@ const MediaList = () => {
     <div className='mx-2 md:mx-10 p-4'>
       <ShiftButton />
 
-      <h2 className='text-xl font-semibold text-gray-200 text-center md:text-left mb-8 capitalize'>
+      <h2 className='text-xl font-semibold text-gray-800 dark:text-gray-200 text-center md:text-left mb-8 capitalize'>
         {category.replace('_', ' ')} {mediaType === 'movie' ? 'Movies' : 'TV Shows'}
       </h2>
 
