@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className='bg-gray-100 dark:bg-black mt-8 py-8 border-t border-teal-700'>
+        <footer className='bg-gray-100 dark:bg-black py-8 border-t border-teal-700'>
             <div className='container mx-auto px-6 lg:px-16 text-center'>
                 {/* Logo and Tagline */}
                 <div className='mb-6'>
@@ -32,7 +32,7 @@ const Footer = () => {
                 {/* Footer Text */}
                 <div className='text-sm text-gray-500'>
                     <p className='text-gray-800 dark:text-gray-400'> &copy; {new Date().getFullYear()} <span className='text-teal-400 font-medium'>MovieMap</span>. All rights reserved </p>
-                    <p className='mt-2 text-gray-800 dark:text-gray-400'> Designed and Developed with ❤️ by the <span className='uppercase'>Shubham Tiwari.</span></p>
+                    <p className='mt-2 mb-10 md:mb-0 text-gray-800 dark:text-gray-400'> Designed and Developed with ❤️ by the <span className='uppercase'>Shubham Tiwari.</span></p>
                 </div>
             </div>
         </footer>

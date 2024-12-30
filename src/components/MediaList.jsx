@@ -11,7 +11,7 @@ const MediaList = () => {
   }, [mediaType, category, fetchMedia]);
 
   return (
-    <div className='mx-2 md:mx-10 p-4'>
+    <div className='mx-2 md:mx-10 px-4 pb-16'>
       <ShiftButton />
 
       <h2 className='text-xl font-semibold text-gray-800 dark:text-gray-200 text-center md:text-left mb-8 capitalize'>

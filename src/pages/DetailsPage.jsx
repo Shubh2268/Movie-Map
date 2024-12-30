@@ -13,7 +13,7 @@ const DetailsPage = () => {
 
   if (loading) {
     return (
-      <div className='bg-black text-white min-h-screen flex items-center justify-center'>
+      <div className='bg-gray-100 dark:bg-black text-gray-900 dark:text-white min-h-screen flex items-center justify-center'>
         <p>Loading...</p>
       </div>
     );
@@ -21,7 +21,7 @@ const DetailsPage = () => {
 
   if (error) {
     return (
-      <div className='bg-black text-white min-h-screen flex items-center justify-center'>
+      <div className='bg-gray-100 dark:bg-black text-gray-900 dark:text-white min-h-screen flex items-center justify-center'>
         <p>{error}</p>
       </div>
     );
@@ -29,7 +29,7 @@ const DetailsPage = () => {
 
   if (!details) {
     return (
-      <div className='bg-black text-white min-h-screen flex items-center justify-center'>
+      <div className='bg-gray-100 dark:bg-black text-gray-900 dark:text-white min-h-screen flex items-center justify-center'>
         <p>No details available.</p>
       </div>
     );
@@ -52,11 +52,11 @@ const DetailsPage = () => {
     episode_run_time,
     director,
     writers,
-    cast = [], // Cast details from the API response
+    cast = [],
   } = details;
 
   return (
-    <div className='bg-black text-white min-h-screen'>
+    <div className='bg-gray-100 dark:bg-black text-gray-800 dark:text-white min-h-screen'>
       {/* Hero Section */}
       <div className='relative w-full h-[40vh] lg:h-[60vh] border-[0.5px] border-gray-600 md:border-none'>
         <img
@@ -79,9 +79,9 @@ const DetailsPage = () => {
         </div>
 
         {/* Details Section */}
-        <div>
-          <h1 className='text-2xl lg:text-4xl font-semibold text-white pt-5 md:pt-0'>{title || name}</h1>
-          {tagline && <p className='text-neutral-300 pt-2'>{tagline}</p>}
+        <div className='py-6 dark:py-0'>
+          <h1 className='text-2xl lg:text-4xl font-semibold dark:text-white pt-5 md:pt-0'>{title || name}</h1>
+          {tagline && <p className='dark:text-neutral-300 pt-2'>{tagline}</p>}
 
           <Divider />
 
@@ -106,8 +106,8 @@ const DetailsPage = () => {
 
           <Divider />
           <div>
-            <h2 className='text-xl font-semibold text-white mb-1'>Overview</h2>
-            <p className='text-gray-300 mb-4'>{overview || 'No overview available.'}</p>
+            <h2 className='text-xl font-semibold dark:text-white mb-1'>Overview</h2>
+            <p className='dark:text-gray-300 mb-4'>{overview || 'No overview available.'}</p>
 
             <Divider />
 
@@ -140,7 +140,7 @@ const DetailsPage = () => {
 
             {/* Cast Section */}
             <div>
-              <h2 className='font-semibold text-white mb-2'>Cast :</h2>
+              <h2 className='font-semibold dark:text-white mb-2'>Cast :</h2>
               <div className='grid grid-cols-3 md:grid-cols-[repeat(auto-fit,96px)] gap-5 my-4'>
                 {cast.length > 0 ? (
                   cast.map((actor) => (
@@ -150,7 +150,7 @@ const DetailsPage = () => {
                         alt={actor.name}
                         className='w-14 h-14 md:w-20 md:h-20 rounded-full object-cover mx-auto'
                       />
-                      <p className='text-gray-400 text-xs md:text-sm mt-2'>{actor.name}</p>
+                      <p className='text-gray-600 dark:text-gray-400 text-xs md:text-sm mt-2'>{actor.name}</p>
                     </div>
                   ))
                 ) : (

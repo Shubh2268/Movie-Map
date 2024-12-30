@@ -15,13 +15,13 @@ const SearchPage = () => {
   }, [query, fetchSearchMedia]);
 
   return (
-    <div className='container mx-auto my-5 md:my-10 p-10'>
-      <h1 className='text-lg md:text-2xl font-medium text-gray-300 text-center my-5'>results for : <span className='text-teal-300'>'{query}'</span></h1>
+    <div className='container mx-auto py-5 md:py-10 px-10 dark:bg-black'>
+      <h1 className='text-lg md:text-2xl font-medium text-gray-500 dark:text-gray-300 text-center pt-14'>results for : <span className='text-teal-500 dark:text-teal-300'>'{query}'</span></h1>
 
       {loading && <p className='text-gray-400 text-center'>Loading...</p>}
       {error && <p className='text-gray-400 text-center'>{error}</p>}
 
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-5 md:mt-10'>
+      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 pt-5 md:pt-10'>
         {media.length > 0 ? (
           media.map((item) => <Card key={item.id} media={item} />)
         ) : (

@@ -25,7 +25,7 @@ const Navbar = () => {
     };
 
     return (
-        <header className='fixed top-0 w-full bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-70 z-40'>
+        <header className='fixed top-0 w-full bg-gray-100 dark:bg-black bg-opacity-95 dark:bg-opacity-70 z-40'>
             <div className='container mx-auto px-5 flex items-center h-16'>
                 {/* Logo */}
                 <Link to='/' className='text-2xl lg:text-3xl font-extrabold px-2 bg-gradient-to-r from-teal-400 to-green-400 inline-block text-transparent bg-clip-text font-logoFont cursor-pointer active:scale-95 transition-all tracking-wide'>moviemap</Link>
