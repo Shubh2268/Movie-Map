@@ -78,23 +78,23 @@ const Navbar = () => {
             )}
 
             {/* Mobile Navigation */}
-            <nav className='md:hidden h-fit p-2 bg-black bg-opacity-70 backdrop-blur-2xl fixed w-full bottom-0 z-40'>
+            <nav className='md:hidden h-fit p-2 bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-70 backdrop-blur-2xl fixed w-full bottom-0 z-40'>
                 <div className='flex items-center justify-around h-full text-neutral-200'>
-                    <Link to='/' className='flex flex-col items-center justify-center'>
+                    <Link to='/' className='flex flex-col items-center justify-center text-black dark:text-neutral-200'>
                         <MdHome size={25} />
-                        <span className='text-xs text-neutral-300'>Home</span>
+                        <span className='text-xs '>Home</span>
                     </Link>
-                    <button onClick={() => handleNavigation('movie')} className='flex flex-col items-center justify-center'>
+                    <button onClick={() => handleNavigation('movie')} className='flex flex-col items-center justify-center text-black dark:text-neutral-200'>
                         <MdMovie size={25} />
-                        <span className='text-xs text-neutral-300'>Movies</span>
+                        <span className='text-xs '>Movies</span>
                     </button>
-                    <button onClick={() => handleNavigation('tv')} className='flex flex-col items-center justify-center'>
+                    <button onClick={() => handleNavigation('tv')} className='flex flex-col items-center justify-center text-black dark:text-neutral-200'>
                         <MdLiveTv size={25} />
-                        <span className='text-xs text-neutral-300'>TV Shows</span>
+                        <span className='text-xs '>TV Shows</span>
                     </button>
-                    <button onClick={() => setShowMobileSearch((prev) => !prev)} className='flex flex-col items-center justify-center'>
+                    <button onClick={() => setShowMobileSearch((prev) => !prev)} className='flex flex-col items-center justify-center text-black dark:text-neutral-200'>
                         <MdSearch size={25} />
-                        <span className='text-xs text-neutral-300'>Search</span>
+                        <span className='text-xs '>Search</span>
                     </button>
                 </div>
             </nav>
