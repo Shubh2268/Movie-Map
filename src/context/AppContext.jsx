@@ -1,7 +1,7 @@
 import React, { createContext, useState, useCallback } from 'react';
-import { FetchMedia as fetchMediaFunction } from '../fetchData/FetchMedia.js';
-import { FetchDetails as fetchDetailsFunction } from '../fetchData/FetchDetails.js';
-import { FetchSearchMedia as fetchSearchMediaFunction } from '../fetchData/FetchSearchMedia.js';
+import { fetchMediaFunction } from '../fetchData/FetchMedia.js';
+import { fetchDetailsFunction } from '../fetchData/FetchDetails.js';
+import { fetchSearchMediaFunction } from '../fetchData/FetchSearchMedia.js';
 
 export const AppContext = createContext();
 
