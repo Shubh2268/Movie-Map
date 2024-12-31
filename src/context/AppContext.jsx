@@ -18,7 +18,7 @@ export const AppProvider = ({ children }) => {
   const [totalPages, setTotalPages] = useState(1);
 
   // Theme state and toggle function
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
