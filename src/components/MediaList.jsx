@@ -2,16 +2,22 @@ import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
 import Card from './Card';
 import ShiftButton from './ShiftButton';
+import Pagination from './Pagination';
 
 const MediaList = () => {
-  const { media, mediaType, fetchMedia, category } = useContext(AppContext);
+  const { media, mediaType, fetchMedia, category, currentPage, totalPages, setCurrentPage } =
+    useContext(AppContext);
 
   useEffect(() => {
-    fetchMedia(mediaType, category);
-  }, [mediaType, category, fetchMedia]);
+    fetchMedia(mediaType, category, currentPage);
+  }, [mediaType, category, currentPage, fetchMedia]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
-    <div className='mx-2 md:mx-10 px-4 pb-16'>
+    <div className='mx-2 md:mx-10 px-4 pb-16 min-h-screen'>
       <ShiftButton />
 
       <h2 className='text-xl font-semibold text-gray-800 dark:text-gray-200 text-center md:text-left mb-8 capitalize'>
@@ -30,6 +36,10 @@ const MediaList = () => {
           No results found for this category.
         </p>
       )}
+
+      {/* Pagination Controls */}
+      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+
     </div>
   );
 };

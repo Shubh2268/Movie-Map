@@ -1,22 +1,29 @@
 import React, { useEffect, useContext } from 'react';
 import { useSearchParams } from 'react-router';
 import { AppContext } from '../context/AppContext';
-import Card from '../components/Card'; 
+import Card from '../components/Card';
+import Pagination from '../components/Pagination';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q');
-  const { fetchSearchMedia, media, loading, error } = useContext(AppContext);
+  const { fetchSearchMedia, media, loading, error, currentPage, totalPages, setCurrentPage } = useContext(AppContext);
 
   useEffect(() => {
     if (query) {
-      fetchSearchMedia(query);
+      fetchSearchMedia(query, 'movie', currentPage); // Pass currentPage
     }
-  }, [query, fetchSearchMedia]);
+  }, [query, currentPage, fetchSearchMedia]); // Added currentPage to dependencies
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page); // Update current page in context
+  };
 
   return (
-    <div className='container mx-auto py-5 md:py-10 px-10 dark:bg-black'>
-      <h1 className='text-lg md:text-2xl font-medium text-gray-500 dark:text-gray-300 text-center pt-14'>results for : <span className='text-teal-500 dark:text-teal-300'>'{query}'</span></h1>
+    <div className='container mx-auto py-5 md:py-10 px-10 dark:bg-black min-h-screen'>
+      <h1 className='text-lg md:text-2xl font-medium text-gray-500 dark:text-gray-300 text-center pt-14'>
+        Results for: <span className='text-teal-500 dark:text-teal-300'>'{query}'</span>
+      </h1>
 
       {loading && <p className='text-gray-400 text-center'>Loading...</p>}
       {error && <p className='text-gray-400 text-center'>{error}</p>}
@@ -25,9 +32,14 @@ const SearchPage = () => {
         {media.length > 0 ? (
           media.map((item) => <Card key={item.id} media={item} />)
         ) : (
-          !loading && <p className='text-gray-400 text-center'>No results found.</p>
+          !loading && <p className='text-gray-300 text-center'>No results found.</p>
         )}
       </div>
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+      )}
     </div>
   );
 };
