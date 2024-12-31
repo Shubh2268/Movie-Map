@@ -32,7 +32,7 @@ const Footer = () => {
                 {/* Footer Text */}
                 <div className='text-sm text-gray-500'>
                     <p className='text-gray-800 dark:text-gray-400'> &copy; {new Date().getFullYear()} <span className='text-teal-400 font-medium'>MovieMap</span>. All rights reserved </p>
-                    <p className='mt-2 mb-10 md:mb-0 text-gray-800 dark:text-gray-400'> Designed and Developed with ❤️ by the <span className='uppercase'>Shubham Tiwari.</span></p>
+                    <p className='mt-2 mb-10 md:mb-0 text-gray-800 dark:text-gray-400'> Designed and Developed with ❤️ by <span className='text-gray-950 dark:text-gray-300'>"Shubham Tiwari"</span>.</p>
                 </div>
             </div>
         </footer>
