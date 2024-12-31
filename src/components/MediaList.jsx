@@ -17,25 +17,21 @@ const MediaList = () => {
   };
 
   return (
-    <div className='mx-2 md:mx-10 px-4 pb-16 min-h-screen'>
+    <div className='mx-2 md:mx-10 px-5 pb-16 min-h-screen'>
       <ShiftButton />
 
-      <h2 className='text-xl font-semibold text-gray-800 dark:text-gray-200 text-center md:text-left mb-8 capitalize'>
+      <h2 className='text-xl font-medium text-gray-800 dark:text-gray-200 text-center md:text-left mb-8 capitalize'>
         {category.replace('_', ' ')} {mediaType === 'movie' ? 'Movies' : 'TV Shows'}
       </h2>
 
       {/* Media Cards */}
       {media.length > 0 ? (
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-3 gap-y-10'>
+        <div className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-3 gap-y-5 lg:gap-y-10'>
           {media.map((item) => (
             <Card key={item.id} media={item} mediaType={mediaType} />
           ))}
         </div>
-      ) : (
-        <p className='text-gray-400 text-center mt-10'>
-          No results found for this category.
-        </p>
-      )}
+      ) : (<p className='text-gray-400 text-center mt-10'>No results found for this category.</p>)}
 
       {/* Pagination Controls */}
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />

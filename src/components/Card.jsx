@@ -15,7 +15,7 @@ const Card = ({ media }) => {
   return (
     <Link to={`/details/${mediaType}/${media.id}`} className='group bg-gray-800 rounded-lg shadow-md shadow-teal-600 overflow-hidden relative'>
       {/* Image */}
-      <div className='relative h-[250px] md:h-[320px] lg:h-[450px]'>
+      <div className='relative h-[150px] md:h-[320px] lg:h-[450px]'>
         {posterPath ? (
           <img
             src={`https://image.tmdb.org/t/p/w500${posterPath}`}
