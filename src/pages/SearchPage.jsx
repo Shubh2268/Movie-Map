@@ -11,9 +11,9 @@ const SearchPage = () => {
 
   useEffect(() => {
     if (query) {
-      fetchSearchMedia(query, 'movie', currentPage);
+      fetchSearchMedia(query, 'movie', 1);
     }
-  }, [query, currentPage, fetchSearchMedia]);
+  }, [query, fetchSearchMedia]);
 
   const handlePageChange = (newPage) => {
     fetchSearchMedia(query, 'movie', newPage);

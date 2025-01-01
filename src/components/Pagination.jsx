@@ -10,26 +10,20 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   return (
-    <div className='flex justify-center items-center space-x-4 mt-8'>
-      <button
-        onClick={handlePrevPage}
-        className='px-4 py-2 bg-teal-500 text-white rounded-md disabled:opacity-50'
-        disabled={currentPage === 1}
-      >
-        Previous
-      </button>
+    <div className='flex justify-center items-center space-x-4 mt-10'>
 
-      <span className='text-xl'>
-        Page {currentPage} of {totalPages}
+      {/* Previous Page Button */}
+      <button onClick={handlePrevPage} className='text-sm px-3 py-2 rounded-lg border transition-all duration-200 ease-in-out bg-transparent text-teal-500 border-teal-500 hover:bg-teal-500 hover:text-white disabled:cursor-not-allowed' disabled={currentPage === 1}>&lt; Prev</button>
+
+      {/* Current Page and Total Pages */}
+      <span className='text-sm text-gray-800 dark:text-gray-300'>
+        Page {currentPage} / {totalPages}
       </span>
 
-      <button
-        onClick={handleNextPage}
-        className='px-4 py-2 bg-teal-500 text-white rounded-md disabled:opacity-50'
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
+      {/* Next Page Button */}
+      <button onClick={handleNextPage} className='text-sm px-3 py-2 rounded-lg border transition-all duration-200 ease-in-out bg-transparent text-teal-500 border-teal-500 hover:bg-teal-500 hover:text-white  disabled:cursor-not-allowed' disabled={currentPage === totalPages}
+      >Next &gt;</button>
+
     </div>
   );
 };

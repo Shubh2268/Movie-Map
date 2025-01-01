@@ -8,8 +8,8 @@ const MediaList = () => {
   const { media, mediaType, fetchMedia, category, currentPage, totalPages } = useContext(AppContext);
 
   useEffect(() => {
-    fetchMedia(mediaType, category, currentPage);
-  }, [mediaType, category, currentPage, fetchMedia]);
+    fetchMedia(mediaType, category, 1);
+  }, [mediaType, category, fetchMedia]);
 
   const handlePageChange = (newPage) => {
     fetchMedia(mediaType, category, newPage);
