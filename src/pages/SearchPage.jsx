@@ -7,16 +7,16 @@ import Pagination from '../components/Pagination';
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q');
-  const { fetchSearchMedia, media, loading, error, currentPage, totalPages, setCurrentPage } = useContext(AppContext);
+  const { fetchSearchMedia, media, loading, error, currentPage, totalPages } = useContext(AppContext);
 
   useEffect(() => {
     if (query) {
-      fetchSearchMedia(query, 'movie', currentPage); // Pass currentPage
+      fetchSearchMedia(query, 'movie', currentPage);
     }
-  }, [query, currentPage, fetchSearchMedia]); // Added currentPage to dependencies
+  }, [query, currentPage, fetchSearchMedia]);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page); // Update current page in context
+  const handlePageChange = (newPage) => {
+    fetchSearchMedia(query, 'movie', newPage);
   };
 
   return (
@@ -36,10 +36,9 @@ const SearchPage = () => {
         )}
       </div>
 
-      {/* Pagination Controls */}
-      {totalPages > 1 && (
-        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-      )}
+      {/* Pagination Component */}
+      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}
+      />
     </div>
   );
 };

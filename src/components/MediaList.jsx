@@ -5,15 +5,14 @@ import ShiftButton from './ShiftButton';
 import Pagination from './Pagination';
 
 const MediaList = () => {
-  const { media, mediaType, fetchMedia, category, currentPage, totalPages, setCurrentPage } =
-    useContext(AppContext);
+  const { media, mediaType, fetchMedia, category, currentPage, totalPages } = useContext(AppContext);
 
   useEffect(() => {
     fetchMedia(mediaType, category, currentPage);
   }, [mediaType, category, currentPage, fetchMedia]);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  const handlePageChange = (newPage) => {
+    fetchMedia(mediaType, category, newPage);
   };
 
   return (
@@ -31,11 +30,13 @@ const MediaList = () => {
             <Card key={item.id} media={item} mediaType={mediaType} />
           ))}
         </div>
-      ) : (<p className='text-gray-400 text-center mt-10'>No results found for this category.</p>)}
+      ) : (
+        <p className='text-gray-400 text-center mt-10'>No results found for this category.</p>
+      )}
 
-      {/* Pagination Controls */}
-      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-
+      {/* Pagination Component */}
+      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}
+      />
     </div>
   );
 };

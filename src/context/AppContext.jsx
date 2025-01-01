@@ -34,7 +34,8 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Function to fetch the list of movies/TV shows with pagination
+
+  // Function to fetch the list of movies/TV shows
   const fetchMedia = useCallback(
     async (type = 'movie', selectedCategory = 'popular', page = 1) => {
       setLoading(true);
@@ -49,8 +50,7 @@ export const AppProvider = ({ children }) => {
       } finally {
         setLoading(false);
       }
-    },
-    []
+    }, []
   );
 
   // Function to fetch details of a specific movie/TV show
@@ -67,7 +67,7 @@ export const AppProvider = ({ children }) => {
     }
   }, []);
 
-  // Function to search for movies/TV shows with pagination
+  // Function to search for movies/TV shows
   const fetchSearchMedia = useCallback(
     async (query, type = 'movie', page = 1) => {
       setLoading(true);
@@ -82,8 +82,7 @@ export const AppProvider = ({ children }) => {
       } finally {
         setLoading(false);
       }
-    },
-    []
+    }, []
   );
 
   return (
