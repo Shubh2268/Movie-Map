@@ -2,7 +2,6 @@ import React, { createContext, useState, useCallback, useEffect } from 'react';
 import { fetchMediaFunction } from '../fetchData/FetchMedia.js';
 import { fetchDetailsFunction } from '../fetchData/FetchDetails.js';
 import { fetchSearchMediaFunction } from '../fetchData/FetchSearchMedia.js';
-import { fetchRelatedMediaFunction } from '../fetchData/FetchRelatedMedia.js';
 
 export const AppContext = createContext();
 
@@ -16,8 +15,6 @@ export const AppProvider = ({ children }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-
-  const [relatedMedia, setRelatedMedia] = useState([]);
 
   // Theme state and toggle function
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
@@ -82,20 +79,6 @@ export const AppProvider = ({ children }) => {
     }
   }, []);
 
-  // Function to fetch Related Media
-  const fetchRelatedMedia = useCallback(async (type = 'movie', id) => {
-    setLoading(true);
-    try {
-      const data = await fetchRelatedMediaFunction(type, id);
-      setRelatedMedia(data);
-      setError(null);
-    } catch (err) {
-      setError('Failed to fetch related media.');
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   return (
     <AppContext.Provider
       value={{
@@ -115,8 +98,6 @@ export const AppProvider = ({ children }) => {
         fetchDetails,
         fetchSearchMedia,
         setCurrentPage,
-        relatedMedia,
-        fetchRelatedMedia,
       }}
     >
       {children}
