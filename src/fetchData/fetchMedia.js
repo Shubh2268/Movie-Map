@@ -1,7 +1,7 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-export const fetchMediaFunction = async (type = 'movie', category = 'popular', page = 1) => {
+const fetchMediaFunction = async (type = 'movie', category = 'popular', page = 1) => {
   const response = await fetch(`${BASE_URL}/${type}/${category}?api_key=${API_KEY}&page=${page}`);
   
   if (!response.ok) throw new Error('Failed to fetch data');
@@ -13,3 +13,5 @@ export const fetchMediaFunction = async (type = 'movie', category = 'popular', p
     total_pages: data.total_pages || 1,
   };
 };
+
+export default fetchMediaFunction;

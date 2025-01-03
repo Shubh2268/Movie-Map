@@ -1,7 +1,7 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-export const fetchDetailsFunction = async (type = 'movie', id) => {
+const fetchDetailsFunction = async (type = 'movie', id) => {
 
   const response = await fetch(`${BASE_URL}/${type}/${id}?api_key=${API_KEY}`);
   const detailsData = await response.json();
@@ -23,3 +23,5 @@ export const fetchDetailsFunction = async (type = 'movie', id) => {
     cast 
   };
 };
+
+export default fetchDetailsFunction;
