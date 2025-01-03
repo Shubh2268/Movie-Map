@@ -21,6 +21,7 @@ const Card = ({ media }) => {
             src={`https://image.tmdb.org/t/p/w500${posterPath}`}
             alt={title}
             className='w-full h-full object-cover transition-transform transform group-hover:scale-105 duration-700 ease-in-out'
+            loading='lazy'
           />
         ) : (
           <div className='w-full h-full bg-gray-700 flex items-center justify-center text-gray-400'>

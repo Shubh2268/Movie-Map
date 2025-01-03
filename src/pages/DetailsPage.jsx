@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router';
 import { AppContext } from '../context/AppContext';
 import Divider from '../components/Divider';
+import RelatedMedia from '../components/RelatedMedia';
 
 const DetailsPage = () => {
   const { mediaType, id } = useParams();
@@ -162,6 +163,9 @@ const DetailsPage = () => {
           </div>
         </div>
       </div>
+
+      <RelatedMedia mediaId={details.id} mediaType={mediaType} />
+
     </div>
   );
 };

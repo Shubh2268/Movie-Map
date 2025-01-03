@@ -11,6 +11,8 @@ export default {
       logoFont: ["Cinzel Decorative"]
     }
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
 

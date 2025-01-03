@@ -2,11 +2,11 @@ import React, { createContext, useState, useCallback, useEffect } from 'react';
 import { fetchMediaFunction } from '../fetchData/FetchMedia.js';
 import { fetchDetailsFunction } from '../fetchData/FetchDetails.js';
 import { fetchSearchMediaFunction } from '../fetchData/FetchSearchMedia.js';
+import { fetchRelatedMediaFunction } from '../fetchData/FetchRelatedMedia.js';
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  
   const [media, setMedia] = useState([]);
   const [mediaType, setMediaType] = useState('movie');
   const [category, setCategory] = useState('popular');
@@ -16,6 +16,8 @@ export const AppProvider = ({ children }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
+  const [relatedMedia, setRelatedMedia] = useState([]);
 
   // Theme state and toggle function
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
@@ -34,24 +36,21 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-
   // Function to fetch the list of movies/TV shows
-  const fetchMedia = useCallback(
-    async (type = 'movie', selectedCategory = 'popular', page = 1) => {
-      setLoading(true);
-      try {
-        const data = await fetchMediaFunction(type, selectedCategory, page);
-        setMedia(data.results);
-        setTotalPages(data.total_pages);
-        setCurrentPage(page);
-        setError(null);
-      } catch (err) {
-        setError('Failed to fetch media data.');
-      } finally {
-        setLoading(false);
-      }
-    }, []
-  );
+  const fetchMedia = useCallback(async (type = 'movie', selectedCategory = 'popular', page = 1) => {
+    setLoading(true);
+    try {
+      const data = await fetchMediaFunction(type, selectedCategory, page);
+      setMedia(data.results);
+      setTotalPages(data.total_pages);
+      setCurrentPage(page);
+      setError(null);
+    } catch (err) {
+      setError('Failed to fetch media data.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   // Function to fetch details of a specific movie/TV show
   const fetchDetails = useCallback(async (type = 'movie', id) => {
@@ -68,22 +67,34 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   // Function to search for movies/TV shows
-  const fetchSearchMedia = useCallback(
-    async (query, type = 'movie', page = 1) => {
-      setLoading(true);
-      try {
-        const data = await fetchSearchMediaFunction(query, type, page);
-        setMedia(data.results);
-        setTotalPages(data.total_pages);
-        setCurrentPage(page);
-        setError(null);
-      } catch (err) {
-        setError('Failed to fetch search results.');
-      } finally {
-        setLoading(false);
-      }
-    }, []
-  );
+  const fetchSearchMedia = useCallback(async (query, type = 'movie', page = 1) => {
+    setLoading(true);
+    try {
+      const data = await fetchSearchMediaFunction(query, type, page);
+      setMedia(data.results);
+      setTotalPages(data.total_pages);
+      setCurrentPage(page);
+      setError(null);
+    } catch (err) {
+      setError('Failed to fetch search results.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  // Function to fetch Related Media
+  const fetchRelatedMedia = useCallback(async (type = 'movie', id) => {
+    setLoading(true);
+    try {
+      const data = await fetchRelatedMediaFunction(type, id);
+      setRelatedMedia(data);
+      setError(null);
+    } catch (err) {
+      setError('Failed to fetch related media.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   return (
     <AppContext.Provider
@@ -103,6 +114,9 @@ export const AppProvider = ({ children }) => {
         fetchMedia,
         fetchDetails,
         fetchSearchMedia,
+        setCurrentPage,
+        relatedMedia,
+        fetchRelatedMedia,
       }}
     >
       {children}

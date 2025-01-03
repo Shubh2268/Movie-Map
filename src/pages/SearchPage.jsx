@@ -25,14 +25,14 @@ const SearchPage = () => {
         Results for: <span className='text-teal-500 dark:text-teal-300'>'{query}'</span>
       </h1>
 
-      {loading && <p className='text-gray-400 text-center'>Loading...</p>}
-      {error && <p className='text-gray-400 text-center'>{error}</p>}
+      {loading && <p className='text-gray-600 dark:text-gray-400 text-center min-h-screen'>Loading...</p>}
+      {error && <p className='text-gray-600 dark:text-gray-400 text-center min-h-screen'>{error}</p>}
 
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 pt-5 md:pt-10'>
+      <div className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pt-5 md:pt-10'>
         {media.length > 0 ? (
           media.map((item) => <Card key={item.id} media={item} />)
         ) : (
-          !loading && <p className='text-gray-300 text-center'>No results found.</p>
+          !loading && <p className='text-gray-600 dark:text-gray-300 text-center min-h-screen'>No results found.</p>
         )}
       </div>
 

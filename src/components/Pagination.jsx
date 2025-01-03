@@ -16,7 +16,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <button onClick={handlePrevPage} className='text-sm px-3 py-2 rounded-lg border transition-all duration-200 ease-in-out bg-transparent text-teal-500 border-teal-500 hover:bg-teal-500 hover:text-white disabled:cursor-not-allowed' disabled={currentPage === 1}>&lt; Prev</button>
 
       {/* Current Page and Total Pages */}
-      <span className='text-sm text-gray-800 dark:text-gray-300'>
+      <span className='text-sm text-gray-900 dark:text-gray-200'>
         Page {currentPage} / {totalPages}
       </span>
 
