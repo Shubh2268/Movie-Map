@@ -26,3 +26,10 @@
 ## <a name="introduction">🤖 Introduction</a>
 
 Moviemap - A modern web application for discovering and exploring movies and TV shows. Features include search functionality, detailed information pages, pagination for seamless navigation, and theme support (light/dark modes). Built with React, Context API, and TMDB API for real-time data fetching.
+
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- Vite
+- React.Js
+- Tailwind CSS
+- TMDB API ( https://www.themoviedb.org ) 
