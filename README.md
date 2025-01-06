@@ -48,4 +48,4 @@ Moviemap is a feature-rich web application designed for movie and TV show enthus
 
 👉 **Built with Modern Technologies**: Developed using React, Context API, and the themoviedb.org API for dynamic and real-time data integration.
 
-This project showcases clean code practices, scalable architecture, and responsiveness, making it a robust example of modern web development.
+👉 **Code Quality**: This project showcases clean code practices, scalable architecture, and responsiveness, making it a robust example of modern web development.
