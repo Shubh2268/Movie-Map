@@ -14,6 +14,7 @@
   <h3 align="center">Modern UI/UX Website</h3>
 </div>
 
+
 ## 📋 <a name="table">Table of Contents</a>
 
 1. 🤖 [Introduction](#introduction)
@@ -21,3 +22,7 @@
 3. 🔋 [Features](#features)
 6. 🔗 [Links](#links)
 
+
+## <a name="introduction">🤖 Introduction</a>
+
+Moviemap - A modern web application for discovering and exploring movies and TV shows. Features include search functionality, detailed information pages, pagination for seamless navigation, and theme support (light/dark modes). Built with React, Context API, and TMDB API for real-time data fetching.
