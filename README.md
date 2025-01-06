@@ -32,7 +32,7 @@ Moviemap - A modern web application for discovering and exploring movies and TV 
 - Vite
 - React.Js
 - Tailwind CSS
-- TMDB API ( themoviedb.org ) 
+- TMDB API ( https://www.themoviedb.org ) 
 
 ## <a name="features">🔋 Features</a> 
 
