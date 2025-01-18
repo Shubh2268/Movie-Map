@@ -28,7 +28,7 @@ const SearchPage = () => {
       {loading && <p className='text-gray-600 dark:text-gray-400 text-center min-h-screen'>Loading...</p>}
       {error && <p className='text-gray-600 dark:text-gray-400 text-center min-h-screen'>{error}</p>}
 
-      <div className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 md:gap-x-3 gap-y-5 lg:gap-y-10 pt-5 md:pt-10'>
+      <div className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 md:gap-x-4 gap-y-5 lg:gap-y-10 pt-5 md:pt-10'>
         {media.length > 0 ? (
           media.map((item) => <Card key={item.id} media={item} />)
         ) : (
