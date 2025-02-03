@@ -58,7 +58,7 @@ const DetailsPage = () => {
   return (
     <div className='bg-gray-100 dark:bg-black text-gray-800 dark:text-white min-h-screen'>
       {/* Hero Section */}
-      <div className='relative w-full h-[40vh] lg:h-[60vh] border-[0.5px] border-gray-600 md:border-none'>
+      <div className='relative w-full h-[40vh] lg:h-[60vh]'>
         <img
           src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
           alt='Backdrop'
